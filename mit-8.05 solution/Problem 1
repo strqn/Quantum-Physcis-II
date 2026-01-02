@@ -1,0 +1,64 @@
+# MIT 8.05 - Quantum Physics II 
+## Problem Set 1 - Solution to Problem 1
+
+### Problem Statement
+A particle of mass $m$ in a one-dimensional potential $V(x)$ has the wave function:
+$$\psi(x) = Nx \exp\left(-\frac{1}{2}\alpha x^2\right), \quad \alpha > 0$$
+
+---
+
+### (a) Normalization and Expectation Values of $x$
+
+**1. Normalization:**
+To find $N$, we use the normalization condition $\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1$:
+$$|N|^2 \int_{-\infty}^{\infty} x^2 e^{-\alpha x^2} dx = 1$$
+Using the standard Gaussian integral $\int_{-\infty}^{\infty} x^2 e^{-\alpha x^2} dx = \frac{\sqrt{\pi}}{2\alpha^{3/2}}$, we get:
+$$|N|^2 \frac{\sqrt{\pi}}{2\alpha^{3/2}} = 1 \implies N = \left( \frac{4\alpha^3}{\pi} \right)^{1/4}$$
+
+**2. Expectation value $\langle \hat{x} \rangle$:**
+$$\langle \hat{x} \rangle = \int_{-\infty}^{\infty} \psi^* x \psi \, dx = |N|^2 \int_{-\infty}^{\infty} x^3 e^{-\alpha x^2} dx$$
+Since the integrand is an **odd function** over a symmetric interval, $\langle \hat{x} \rangle = 0$.
+
+**3. Expectation value $\langle \hat{x}^2 \rangle$:**
+Using the integral $\int_{-\infty}^{\infty} x^4 e^{-\alpha x^2} dx = \frac{3\sqrt{\pi}}{4\alpha^{5/2}}$:
+$$\langle \hat{x}^2 \rangle = |N|^2 \frac{3\sqrt{\pi}}{4\alpha^{5/2}} = \left( \frac{2\alpha^{3/2}}{\sqrt{\pi}} \right) \left( \frac{3\sqrt{\pi}}{4\alpha^{5/2}} \right) = \frac{3}{2\alpha}$$
+
+---
+
+### (b) Expectation Values of $p$
+
+**1. Expectation value $\langle \hat{p} \rangle$:**
+For any real wavefunction, $\langle \hat{p} \rangle = 0$. Mathematically, the integrand is odd.
+
+**2. Expectation value $\langle \hat{p}^2 \rangle$:**
+Using $\langle \hat{p}^2 \rangle = -\hbar^2 \int \psi \frac{d^2\psi}{dx^2} dx$:
+$$\frac{d\psi}{dx} = N(1 - \alpha x^2) e^{-\frac{1}{2}\alpha x^2}$$
+$$\frac{d^2\psi}{dx^2} = N(\alpha^2 x^3 - 3\alpha x) e^{-\frac{1}{2}\alpha x^2} = (\alpha^2 x^2 - 3\alpha)\psi(x)$$
+Evaluating the integral:
+$$\langle \hat{p}^2 \rangle = \frac{3}{2} \hbar^2 \alpha$$
+
+---
+
+### (c) Eigenstate Verification
+* **Position:** $\hat{x}\psi(x) = x\psi(x) \propto x^2 e^{-\dots} \neq \lambda \psi(x)$. Not an eigenstate.
+* **Momentum:** $\hat{p}\psi(x) = -i\hbar \frac{d\psi}{dx} \propto (1-\alpha x^2) e^{-\dots} \neq \lambda \psi(x)$. Not an eigenstate.
+
+---
+
+### (d) Expectation value of $\hat{H}$ if $V(x)=0$
+If $V(x) = 0$, then $\hat{H} = \frac{\hat{p}^2}{2m}$:
+$$\langle \hat{H} \rangle = \frac{\langle \hat{p}^2 \rangle}{2m} = \frac{3\hbar^2 \alpha}{4m}$$
+
+---
+
+### (e) Determining Potential $V(x)$ and Energy $E$
+Assuming $\psi(x)$ is an energy eigenstate:
+$$-\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} + V(x)\psi = E\psi$$
+Substituting $\frac{d^2\psi}{dx^2} = (\alpha^2 x^2 - 3\alpha)\psi$:
+$$-\frac{\hbar^2}{2m} (\alpha^2 x^2 - 3\alpha) + V(x) = E$$
+$$V(x) = E - \frac{3\hbar^2 \alpha}{2m} + \frac{\hbar^2 \alpha^2}{2m} x^2$$
+Given $V(0) = 0$:
+$$0 = E - \frac{3\hbar^2 \alpha}{2m} \implies E = \frac{3\hbar^2 \alpha}{2m}$$
+Thus, the potential is a **Harmonic Oscillator**:
+$$V(x) = \frac{\hbar^2 \alpha^2}{2m} x^2$$
+**Note:** $\psi(x)$ is the **first excited state** ($n=1$) because it has one node at $x=0$.
