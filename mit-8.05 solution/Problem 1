@@ -62,3 +62,29 @@ $$0 = E - \frac{3\hbar^2 \alpha}{2m} \implies E = \frac{3\hbar^2 \alpha}{2m}$$
 Thus, the potential is a **Harmonic Oscillator**:
 $$V(x) = \frac{\hbar^2 \alpha^2}{2m} x^2$$
 **Note:** $\psi(x)$ is the **first excited state** ($n=1$) because it has one node at $x=0$.
+
+
+### Problem 1 - Part 2: Energy vs Potential Minimum
+
+**Theorem:** For any normalizable state in a one-dimensional potential $V(x)$, the energy $E$ must satisfy $E > V_{\text{min}}$.
+
+**Proof:**
+Consider the time-independent Schrödinger equation:
+$$-\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} + V(x)\psi(x) = E\psi(x)$$
+
+The expectation value of the Hamiltonian $\hat{H}$ is:
+$$\langle H \rangle = \int_{-\infty}^{\infty} \psi^* \left( -\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x) \right) \psi \, dx = E$$
+
+Using integration by parts on the kinetic energy term:
+$$\int_{-\infty}^{\infty} \psi^* \left( -\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} \right) dx = \frac{\hbar^2}{2m} \int_{-\infty}^{\infty} \left| \frac{d\psi}{dx} \right|^2 dx$$
+
+Thus:
+$$E = \frac{\hbar^2}{2m} \int_{-\infty}^{\infty} \left| \frac{d\psi}{dx} \right|^2 dx + \int_{-\infty}^{\infty} V(x) |\psi(x)|^2 dx$$
+
+Since $|\psi(x)|^2$ is a probability density:
+$$\int_{-\infty}^{\infty} V(x) |\psi(x)|^2 dx \ge V_{\text{min}} \int_{-\infty}^{\infty} |\psi(x)|^2 dx = V_{\text{min}}$$
+
+And since $\int |d\psi/dx|^2 dx > 0$ (because a normalizable $\psi(x)$ cannot be constant everywhere):
+$$E > V_{\text{min}}$$
+The equality $E = V_{\text{min}}$ is only possible if the kinetic energy is zero, which implies $\psi(x)$ is constant, but a constant function is not normalizable over $(-\infty, \infty)$. Therefore, $E$ must be strictly greater than $V_{\text{min}}$.
+
